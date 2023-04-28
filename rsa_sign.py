@@ -3,7 +3,7 @@ from Crypto.Hash import SHA256
 from Crypto.PublicKey import RSA
 
 with open('private.pem', 'rb') as f:
-    pkey = RSA.importKey(f.read())
+    pkey = RSA.importKey(f.read(), passphrase='dees')
 m = b'Hello world!'
 hash = SHA256.new(m)
 pk = PKCS1_v1_5.new(pkey)
